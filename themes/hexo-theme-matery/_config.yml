@@ -16,12 +16,12 @@ menu:
   About:
     url: /about
     icon: fas fa-user-circle
-  Contact:
-    url: /contact
-    icon: fas fa-comments
-  Friends:
-    url: /friends
-    icon: fas fa-address-book
+#  Contact:
+#    url: /contact
+#    icon: fas fa-comments
+#  Friends:
+#    url: /friends
+#    icon: fas fa-address-book
   # 二级菜单写法如下
   #Medias:
   #  icon: fas fa-list
@@ -160,14 +160,14 @@ indexbtn:
 # icon/button will not show up if you leave the corresponding socialLink empty
 # 首页 banner 中的第二行个人信息配置，留空即不启用
 socialLink:
-  github:  https://github.com/blinkfox
-  email: 1181062873@qq.com
-  facebook: # https://www.facebook.com/xxx
-  twitter: # https://twitter.com/xxx
-  qq: 1181062873
-  weibo: # https://weibo.com/xxx
-  zhihu: # https://www.zhihu.com/xxx
-  rss: true # true、false
+  github: https://github.com/DefeatLaziness?tab=repositories
+  email: 1846740856@qq.com
+  facebook:
+  twitter:
+  qq: 1846740856
+  weibo:
+  zhihu: 
+  rss:  # true、false
 
 # Whether to activate the Post TOC, and Configure which title types are supported by TOC support.
 # You can add `toc: false` to the Front-matter of a post to turn off the TOC.
