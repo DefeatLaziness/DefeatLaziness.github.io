@@ -13,7 +13,7 @@ categories: [算法图解]
 ```tsx
 //  有序数组二分法查找
 
-let arr: number[] = []
+let arr: number[] = [4, 5]
 
 function createArr(arr: number[]) {
   for (let index = 1; index <= 100; index++) {
@@ -27,12 +27,12 @@ function dichotomy(arr: number[], ele: number) {
   let left = 0
   let right = arr.length - 1
 
-  while (left < right) {
+  while (left <= right) {
     let mid = Math.floor((left + right) / 2)
     let midEle = arr[mid]
     if (midEle == ele) return `该元素对应的下标为: ${mid}`
-    else if (midEle > ele) right = mid
-    else left = mid
+    else if (midEle > ele) right = mid - 1
+    else left = mid + 1
   }
   return '没找到该元素对应的下标'
 }
