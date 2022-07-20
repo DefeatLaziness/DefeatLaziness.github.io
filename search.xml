@@ -8,7 +8,7 @@
       <link href="/2022/07/20/suan-fa-tu-jie-chapter2/"/>
       <url>/2022/07/20/suan-fa-tu-jie-chapter2/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h6 id="排序是相连的"><a href="#排序是相连的" class="headerlink" title="排序是相连的"></a>排序是相连的</h6><ol><li>数组不定长的缺点：在新增元素时，需重新寻找空间</li><li>数组定长的缺点：额外多余的位置可能用不上，浪费内存</li></ol><h6 id="查找元素："><a href="#查找元素：" class="headerlink" title="查找元素："></a>查找元素：</h6><table><thead><tr><th align="center">读取</th><th align="center">插入</th><th align="center">删除</th></tr></thead><tbody><tr><td align="center">O(1)</td><td align="center">O(n)</td><td align="center">O(n)</td></tr></tbody></table><p>比链表效率高</p><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h6 id="元素可存储在内存的任何地方，通过指向来连接所有元素"><a href="#元素可存储在内存的任何地方，通过指向来连接所有元素" class="headerlink" title="元素可存储在内存的任何地方，通过指向来连接所有元素"></a>元素可存储在内存的任何地方，通过指向来连接所有元素</h6><h6 id="查找元素：-1"><a href="#查找元素：-1" class="headerlink" title="查找元素："></a>查找元素：</h6><table><thead><tr><th align="center">读取</th><th align="center">插入</th><th align="center">删除</th></tr></thead><tbody><tr><td align="center">O(n)</td><td align="center">O(1)</td><td align="center">O(1)</td></tr></tbody></table>]]></content>
       
       
       <categories>
