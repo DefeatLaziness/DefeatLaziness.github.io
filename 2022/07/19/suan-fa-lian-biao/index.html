@@ -556,6 +556,127 @@ traverse(a)
 // 3
 // 4
 </code></pre>
+<h2 id="逆序链表"><a href="#逆序链表" class="headerlink" title="逆序链表"></a>逆序链表</h2><pre class=" language-tsx"><code class="language-tsx">// 逆序链表
+class CreateNode {
+    next: CreateNode | null
+
+    constructor(public value: number) {
+        this.value = value
+        this.next = null
+    }
+}
+
+let a = new CreateNode(1)
+let b = new CreateNode(2)
+let c = new CreateNode(3)
+let d = new CreateNode(4)
+
+a.next = b
+b.next = c
+c.next = d
+
+function reverse(root: CreateNode) : CreateNode | null {
+    if (root === null) return null
+    if (root.next === null) return null
+    if (root.next.next === null) {
+        root.next.next = root
+        return root.next
+    } else {
+        let result = reverse(root.next)
+        root.next.next = root
+        root.next = null
+        return result
+    }
+    
+}
+
+
+function traverse(root: CreateNode) {
+    if (root === null) return
+    console.log(root.value);
+    traverse(root.next!)
+}
+
+traverse(a)
+traverse(reverse(a)!);
+// 1
+// 2
+// 3
+// 4
+// 4
+// 3
+// 2
+// 1
+</code></pre>
+<h2 id="数组冒泡排序"><a href="#数组冒泡排序" class="headerlink" title="数组冒泡排序"></a>数组冒泡排序</h2><pre class=" language-tsx"><code class="language-tsx">// 数组冒泡排序
+
+let arr = [6, 5, 4, 3, 2, 1]
+
+function compare<T>(a: T, b: T): boolean {
+  if (a > b) return true
+  return false
+}
+
+function exchange(i: number, j: number) {
+  let length = arr.length
+  if (i > length - 1 || j > length - 1) return
+  var temp = arr[i]
+  arr[i] = arr[j]
+  arr[j] = temp
+}
+
+function sortToLarge<T>(arr: T[]) {
+  let length = arr.length
+  if (length <= 1) return
+  for (let i = 0; i < length; i++) {
+    for (let j = i + 1; j < length; j++) {
+      if (compare(arr[i], arr[j])) {
+        exchange(i, j)
+      }
+    }
+  }
+}
+
+function sortToSmall<T>(arr: T[]) {
+  let length = arr.length
+  if (length <= 1) return
+  // for (let i = length - 1; i >= 0; i--) {
+  //     for (let j = i - 1; j >= 0; j--) {
+  //         if (compare(arr[i], arr[j])) {
+  //             exchange(i,j)
+  //         }
+  //     }
+  // }
+  for (let i = 0; i < length; i++) {
+    for (let j = i + 1; j < length; j++) {
+      if (!compare(arr[i], arr[j])) {
+        exchange(i, j)
+      }
+    }
+  }
+}
+
+// toLarge为true代表从小到大，反之
+function sort<T>(arr: T[], toLarge: boolean) {
+  let length = arr.length
+  if (length <= 1) return
+  for (let i = 0; i < length; i++) {
+    for (let j = i + 1; j < length; j++) {
+      if (toLarge == compare(arr[i], arr[j])) {
+        exchange(i, j)
+      }
+    }
+  }
+}
+
+console.log(arr) //[ 6, 5, 4, 3, 2, 1 ]
+// sortToLarge(arr)
+sort(arr, true)
+console.log(arr) //[ 1, 2, 3, 4, 5, 6 ]
+// sortToSmall(arr)
+sort(arr, false)
+console.log(arr) //[ 6, 5, 4, 3, 2, 1 ]
+</code></pre>
 
                 
             </div>
