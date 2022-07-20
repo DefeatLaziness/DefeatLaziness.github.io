@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="算法-链表, 自律,激励">
-    <meta name="description" content="算法-链表">
+    <meta name="keywords" content="算法初探, 自律,激励">
+    <meta name="description" content="算法初探">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>算法-链表 | 自律之路</title>
+    <title>算法初探 | 自律之路</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -267,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">算法-链表</h1>
+                    <h1 class="description center-align post-title">算法初探</h1>
                 </div>
             </div>
         </div>
@@ -434,7 +434,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><h2 id="理解链表"><a href="#理解链表" class="headerlink" title="理解链表"></a>理解链表</h2><p>带有封装性质的数据结构，两块东西，数据和引用(指针)</p>
+                <h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><h2 id="理解链表"><a href="#理解链表" class="headerlink" title="理解链表"></a>理解链表</h2><p>​		带有封装性质的数据结构，两块东西，数据和引用(指针)</p>
 <h2 id="链表的特点"><a href="#链表的特点" class="headerlink" title="链表的特点"></a>链表的特点</h2><ol>
 <li>空间上不连续</li>
 <li>每存放一个值都会有一个引用空间</li>
@@ -676,6 +676,35 @@ console.log(arr) //[ 1, 2, 3, 4, 5, 6 ]
 // sortToSmall(arr)
 sort(arr, false)
 console.log(arr) //[ 6, 5, 4, 3, 2, 1 ]
+</code></pre>
+<h2 id="数组快速排序"><a href="#数组快速排序" class="headerlink" title="数组快速排序"></a>数组快速排序</h2><pre class=" language-tsx"><code class="language-tsx">// 数组快速排序
+let arr = [4, 1, 6, 5, 3, 2, 8, 7]
+
+function quickSort(arr: number[], toLarge = true) {
+  let length = arr.length
+  if (length == 0 || arr == null) return []
+
+  let leader = arr[0]
+  let left: number[] = []
+  let right: number[] = []
+  for (let i = 1; i < length; i++) {
+    if (arr[i] < leader) {
+      if (toLarge) left.push(arr[i])
+      else right.push(arr[i])
+    } else {
+      if (toLarge) right.push(arr[i])
+      else left.push(arr[i])
+    }
+  }
+  left = quickSort(left, toLarge)!
+  right = quickSort(right, toLarge)!
+  left.push(leader)
+  let result = left.concat(right)
+  return result
+}
+
+console.log(quickSort(arr)) // [1, 2, 3, 4, 5, 6, 7, 8]
+console.log(quickSort(arr, false)) // [8, 7, 6, 5, 4, 3, 2, 1]
 </code></pre>
 
                 
@@ -925,15 +954,15 @@ console.log(arr) //[ 6, 5, 4, 3, 2, 1 ]
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="算法-链表">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="算法初探">
                         
-                        <span class="card-title">算法-链表</span>
+                        <span class="card-title">算法初探</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            算法-链表
+                            算法初探
                         
                     </div>
                     <div class="publish-info">
