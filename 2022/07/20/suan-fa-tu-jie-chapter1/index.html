@@ -436,7 +436,7 @@
             <div id="articleContent">
                 <h1 id="算法简介"><a href="#算法简介" class="headerlink" title="算法简介"></a>算法简介</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><pre class=" language-tsx"><code class="language-tsx">//  有序数组二分法查找
 
-let arr: number[] = []
+let arr: number[] = [4, 5]
 
 function createArr(arr: number[]) {
   for (let index = 1; index <= 100; index++) {
@@ -450,12 +450,12 @@ function dichotomy(arr: number[], ele: number) {
   let left = 0
   let right = arr.length - 1
 
-  while (left < right) {
+  while (left <= right) {
     let mid = Math.floor((left + right) / 2)
     let midEle = arr[mid]
     if (midEle == ele) return `该元素对应的下标为: ${mid}`
-    else if (midEle > ele) right = mid
-    else left = mid
+    else if (midEle > ele) right = mid - 1
+    else left = mid + 1
   }
   return '没找到该元素对应的下标'
 }
@@ -703,30 +703,29 @@ console.log(dichotomy(arr, -1)) //  没找到该元素对应的下标
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/07/20/suan-fa-tu-jie-chapter1/">
+                <a href="/2022/07/20/suan-fa-tu-jie-chapter2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="算法图解-chapter1">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="算法图解-chapter2">
                         
-                        <span class="card-title">算法图解-chapter1</span>
+                        <span class="card-title">算法图解-chapter2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            算法图解-chapter1
+                            算法图解-chapter2
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-20
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -739,7 +738,6 @@ console.log(dichotomy(arr, -1)) //  没找到该元素对应的下标
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
