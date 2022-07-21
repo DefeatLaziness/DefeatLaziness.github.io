@@ -467,6 +467,37 @@
 <td align="center">O(1)</td>
 </tr>
 </tbody></table>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-tsx"><code class="language-tsx">// 数组的选择排序
+
+let arr = [5, 3, 6, 2, 10]
+let arr1 = [5, 3, 6, 2, 10]
+
+function findIndex<T>(arr: T[], toLarge: boolean): number {
+  let target = arr[0]
+  let target_index = 0
+  for (let index = 0; index < arr.length; index++) {
+    if ((toLarge && arr[index] < target) || (!toLarge && arr[index] > target)) {
+      target = arr[index]
+      target_index = index
+    }
+  }
+  return target_index
+}
+
+function selectionSort(arr: number[], toLarge = true): number[] {
+  let newArr: number[] = []
+  let length = arr.length
+  while (length != 0) {
+    let target_index = findIndex(arr, toLarge)
+    newArr.push(arr.splice(target_index, 1)[0])
+    length = arr.length
+  }
+  return newArr
+}
+
+console.log(selectionSort(arr)) //  [ 2, 3, 5, 6, 10 ]
+console.log(selectionSort(arr1, false)) //  [ 10, 6, 5, 3, 2 ]
+</code></pre>
 
                 
             </div>
@@ -706,30 +737,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/07/20/suan-fa-tu-jie-chapter2/">
+                <a href="/2022/07/21/suan-fa-tu-jie-chapter4/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="算法图解-chapter2">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="算法图解-chapter4">
                         
-                        <span class="card-title">算法图解-chapter2</span>
+                        <span class="card-title">算法图解-chapter4</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            算法图解-chapter2
+                            算法图解-chapter4
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -742,7 +772,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     

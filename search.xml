@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>算法图解-chapter4</title>
+      <link href="/2022/07/21/suan-fa-tu-jie-chapter4/"/>
+      <url>/2022/07/21/suan-fa-tu-jie-chapter4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><pre class=" language-tsx"><code class="language-tsx">// 快速排序let arr = [3, 6, 9, 3, 2, 15, 67, 34, 2, 8]function quickSort(arr: number[], toLarge = true): number[] {  let length = arr.length  if (length == 0) return []  let firstNum = arr[0]  let left: number[] = []  let right: number[] = []  for (let i = 1; i < length; i++) {    if (arr[i] < firstNum) {      if (toLarge) left.push(arr[i])      else right.push(arr[i])    } else {      if (toLarge) right.push(arr[i])      else left.push(arr[i])    }  }  left = quickSort(left, toLarge)  right = quickSort(right, toLarge)  left.push(firstNum)  let result = left.concat(right)  return result}console.log(quickSort(arr)) // [ 2, 2,  3,  3,  6, 8, 9, 15, 34, 67]console.log(quickSort(arr, false)) // [ 67, 34, 15, 9, 8, 6,  3,  3, 2, 2]</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法图解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法图解 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>算法图解-chapter2</title>
       <link href="/2022/07/20/suan-fa-tu-jie-chapter2/"/>
       <url>/2022/07/20/suan-fa-tu-jie-chapter2/</url>
       
-        <content type="html"><![CDATA[<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h6 id="排序是相连的"><a href="#排序是相连的" class="headerlink" title="排序是相连的"></a>排序是相连的</h6><ol><li>数组不定长的缺点：在新增元素时，需重新寻找空间</li><li>数组定长的缺点：额外多余的位置可能用不上，浪费内存</li></ol><h6 id="查找元素："><a href="#查找元素：" class="headerlink" title="查找元素："></a>查找元素：</h6><table><thead><tr><th align="center">读取</th><th align="center">插入</th><th align="center">删除</th></tr></thead><tbody><tr><td align="center">O(1)</td><td align="center">O(n)</td><td align="center">O(n)</td></tr></tbody></table><p>比链表效率高</p><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h6 id="元素可存储在内存的任何地方，通过指向来连接所有元素"><a href="#元素可存储在内存的任何地方，通过指向来连接所有元素" class="headerlink" title="元素可存储在内存的任何地方，通过指向来连接所有元素"></a>元素可存储在内存的任何地方，通过指向来连接所有元素</h6><h6 id="查找元素：-1"><a href="#查找元素：-1" class="headerlink" title="查找元素："></a>查找元素：</h6><table><thead><tr><th align="center">读取</th><th align="center">插入</th><th align="center">删除</th></tr></thead><tbody><tr><td align="center">O(n)</td><td align="center">O(1)</td><td align="center">O(1)</td></tr></tbody></table>]]></content>
+        <content type="html"><![CDATA[<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h6 id="排序是相连的"><a href="#排序是相连的" class="headerlink" title="排序是相连的"></a>排序是相连的</h6><ol><li>数组不定长的缺点：在新增元素时，需重新寻找空间</li><li>数组定长的缺点：额外多余的位置可能用不上，浪费内存</li></ol><h6 id="查找元素："><a href="#查找元素：" class="headerlink" title="查找元素："></a>查找元素：</h6><table><thead><tr><th align="center">读取</th><th align="center">插入</th><th align="center">删除</th></tr></thead><tbody><tr><td align="center">O(1)</td><td align="center">O(n)</td><td align="center">O(n)</td></tr></tbody></table><p>比链表效率高</p><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h6 id="元素可存储在内存的任何地方，通过指向来连接所有元素"><a href="#元素可存储在内存的任何地方，通过指向来连接所有元素" class="headerlink" title="元素可存储在内存的任何地方，通过指向来连接所有元素"></a>元素可存储在内存的任何地方，通过指向来连接所有元素</h6><h6 id="查找元素：-1"><a href="#查找元素：-1" class="headerlink" title="查找元素："></a>查找元素：</h6><table><thead><tr><th align="center">读取</th><th align="center">插入</th><th align="center">删除</th></tr></thead><tbody><tr><td align="center">O(n)</td><td align="center">O(1)</td><td align="center">O(1)</td></tr></tbody></table><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-tsx"><code class="language-tsx">// 数组的选择排序let arr = [5, 3, 6, 2, 10]let arr1 = [5, 3, 6, 2, 10]function findIndex<T>(arr: T[], toLarge: boolean): number {  let target = arr[0]  let target_index = 0  for (let index = 0; index < arr.length; index++) {    if ((toLarge && arr[index] < target) || (!toLarge && arr[index] > target)) {      target = arr[index]      target_index = index    }  }  return target_index}function selectionSort(arr: number[], toLarge = true): number[] {  let newArr: number[] = []  let length = arr.length  while (length != 0) {    let target_index = findIndex(arr, toLarge)    newArr.push(arr.splice(target_index, 1)[0])    length = arr.length  }  return newArr}console.log(selectionSort(arr)) //  [ 2, 3, 5, 6, 10 ]console.log(selectionSort(arr1, false)) //  [ 10, 6, 5, 3, 2 ]</code></pre>]]></content>
       
       
       <categories>
@@ -33,7 +58,7 @@
       <link href="/2022/07/20/suan-fa-tu-jie-chapter1/"/>
       <url>/2022/07/20/suan-fa-tu-jie-chapter1/</url>
       
-        <content type="html"><![CDATA[<h1 id="算法简介"><a href="#算法简介" class="headerlink" title="算法简介"></a>算法简介</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><pre class=" language-tsx"><code class="language-tsx">//  有序数组二分法查找let arr: number[] = [4, 5]function createArr(arr: number[]) {  for (let index = 1; index <= 100; index++) {    arr.push(index)  }}createArr(arr)// 基本使用function dichotomy(arr: number[], ele: number) {  let left = 0  let right = arr.length - 1  while (left <= right) {    let mid = Math.floor((left + right) / 2)    let midEle = arr[mid]    if (midEle == ele) return `该元素对应的下标为: ${mid}`    else if (midEle > ele) right = mid - 1    else left = mid + 1  }  return '没找到该元素对应的下标'}console.log(dichotomy(arr, 66)) //  该元素对应的下标为: 65console.log(dichotomy(arr, 12)) //  该元素对应的下标为: 11console.log(dichotomy(arr, -1)) //  没找到该元素对应的下标</code></pre>]]></content>
+        <content type="html"><![CDATA[<h1 id="算法简介"><a href="#算法简介" class="headerlink" title="算法简介"></a>算法简介</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><pre class=" language-tsx"><code class="language-tsx">//  有序数组二分法查找let arr: number[] = [4, 5]function createArr(arr: number[]) {  for (let index = 1; index <= 100; index++) {    arr.push(index)  }}createArr(arr)// 基本使用function dichotomy(arr: number[], ele: number) {  let left = 0  let right = arr.length - 1  while (left <= right) {    let mid = Math.floor((left + right) / 2)    let midEle = arr[mid]    if (midEle == ele) return `该元素对应的下标为: ${mid}`    else if (midEle > ele) right = mid - 1    else left = mid + 1  }  return '没找到该元素对应的下标'}console.log(dichotomy(arr, 66)) //  该元素对应的下标为: 65console.log(dichotomy(arr, 12)) //  该元素对应的下标为: 11console.log(dichotomy(arr, -1)) //  没找到该元素对应的下标</code></pre><h2 id="常见的大O运行时间（越往下越慢）"><a href="#常见的大O运行时间（越往下越慢）" class="headerlink" title="常见的大O运行时间（越往下越慢）"></a>常见的大O运行时间（越往下越慢）</h2><table><thead><tr><th align="center">大O运行时间</th><th align="center">包括的算法</th></tr></thead><tbody><tr><td align="center">O(log n)</td><td align="center">二分查找</td></tr><tr><td align="center">O(n)</td><td align="center">简单查找</td></tr><tr><td align="center">O(n * logn)</td><td align="center">快速排序</td></tr><tr><td align="center">O(n ^ 2)</td><td align="center">选择排序</td></tr><tr><td align="center">O(n!)</td><td align="center">旅行商问题解决方案</td></tr></tbody></table>]]></content>
       
       
       <categories>
