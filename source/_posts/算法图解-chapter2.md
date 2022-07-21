@@ -33,3 +33,39 @@ categories: [算法图解]
 | :--: | :--: | :--: |
 | O(n) | O(1) | O(1) |
 
+## 代码
+
+```tsx
+// 数组的选择排序
+
+let arr = [5, 3, 6, 2, 10]
+let arr1 = [5, 3, 6, 2, 10]
+
+function findIndex<T>(arr: T[], toLarge: boolean): number {
+  let target = arr[0]
+  let target_index = 0
+  for (let index = 0; index < arr.length; index++) {
+    if ((toLarge && arr[index] < target) || (!toLarge && arr[index] > target)) {
+      target = arr[index]
+      target_index = index
+    }
+  }
+  return target_index
+}
+
+function selectionSort(arr: number[], toLarge = true): number[] {
+  let newArr: number[] = []
+  let length = arr.length
+  while (length != 0) {
+    let target_index = findIndex(arr, toLarge)
+    newArr.push(arr.splice(target_index, 1)[0])
+    length = arr.length
+  }
+  return newArr
+}
+
+console.log(selectionSort(arr)) //  [ 2, 3, 5, 6, 10 ]
+console.log(selectionSort(arr1, false)) //  [ 10, 6, 5, 3, 2 ]
+
+```
+
