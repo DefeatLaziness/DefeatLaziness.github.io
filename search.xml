@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>算法图解-chapter7</title>
+      <link href="/2022/07/21/suan-fa-tu-jie-chapter7/"/>
+      <url>/2022/07/21/suan-fa-tu-jie-chapter7/</url>
+      
+        <content type="html"><![CDATA[<h1 id="狄克斯特拉算法"><a href="#狄克斯特拉算法" class="headerlink" title="狄克斯特拉算法"></a>狄克斯特拉算法</h1><h5 id="权重：图中的每条边都有关联数字，这些数字称为权重"><a href="#权重：图中的每条边都有关联数字，这些数字称为权重" class="headerlink" title="权重：图中的每条边都有关联数字，这些数字称为权重"></a>权重：图中的每条边都有关联数字，这些数字称为权重</h5><h5 id="加权图-带权重的图称为加权图"><a href="#加权图-带权重的图称为加权图" class="headerlink" title="加权图: 带权重的图称为加权图"></a>加权图: 带权重的图称为加权图</h5><h5 id="非加权图-不带权重的图称为加权图"><a href="#非加权图-不带权重的图称为加权图" class="headerlink" title="非加权图: 不带权重的图称为加权图"></a>非加权图: 不带权重的图称为加权图</h5><h5 id="广度优先搜索-适合用于计算非加权图的最短路径"><a href="#广度优先搜索-适合用于计算非加权图的最短路径" class="headerlink" title="广度优先搜索: 适合用于计算非加权图的最短路径"></a>广度优先搜索: 适合用于计算非加权图的最短路径</h5><h5 id="狄克斯特拉算法-适合用于计算加权图（有向无环图）的最短路径"><a href="#狄克斯特拉算法-适合用于计算加权图（有向无环图）的最短路径" class="headerlink" title="狄克斯特拉算法: 适合用于计算加权图（有向无环图）的最短路径"></a>狄克斯特拉算法: 适合用于计算加权图（有向无环图）的最短路径</h5>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法图解 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法图解 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>算法图解-chapter4</title>
       <link href="/2022/07/21/suan-fa-tu-jie-chapter4/"/>
       <url>/2022/07/21/suan-fa-tu-jie-chapter4/</url>
