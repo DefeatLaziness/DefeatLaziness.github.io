@@ -34,15 +34,51 @@ https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API
 
 https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Getting_Started
 
-https://www.cnblogs.com/jane-panyiyun/p/13092297.html
-
 ## 6. 地理定位
+
+```javascript
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+
+function success(pos) {
+  var crd = pos.coords;
+
+  console.log('Your current position is:');
+  console.log('Latitude : ' + crd.latitude);
+  console.log('Longitude: ' + crd.longitude);
+  console.log('More or less ' + crd.accuracy + ' meters.');
+};
+
+function error(err) {
+  console.warn('ERROR(' + err.code + '): ' + err.message);
+};
+
+navigator.geolocation.getCurrentPosition(success, error, options);
+
+```
+
+
 
 ## 7. 拖放API
 
+```html
+<div draggable="true"></div> // div添加draggable为true才可拖动
+```
+
+![image-20221020154321887](/Users/kim/Library/Application Support/typora-user-images/image-20221020154321887.png)
+
 ## 8. WebWorker
+
+![image-20221020160526297](/Users/kim/Library/Application Support/typora-user-images/image-20221020160526297.png)
 
 ## 9. WebStorage
 
+![image-20221020163206435](/Users/kim/Library/Application Support/typora-user-images/image-20221020163206435.png)
+
 ## 10. WebSocket
+
+https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket
 
