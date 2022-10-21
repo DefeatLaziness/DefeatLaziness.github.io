@@ -18,4 +18,5 @@ Css3 是 css 的最新标准， 是向后兼容的，css1/2的特性在css3里�
 
 ## 2. 选择器
 
-https://github.com/febobo/web-interview/issues/106
+![](https://s2.loli.net/2022/10/21/P7vfUQWAOuCo1Yy.png)
+

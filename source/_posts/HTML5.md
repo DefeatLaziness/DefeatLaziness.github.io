@@ -10,15 +10,17 @@ categories: [H5]
 
 ## 1. 语义化标签
 
-![image-20221019121404964](/Users/kim/Library/Application Support/typora-user-images/image-20221019121404964.png)
+![](https://s2.loli.net/2022/10/21/PsZYNSTvpmywQLi.png)
+
+
 
 ## 2. 增强型表单
 
-![image-20221019145821805](/Users/kim/Library/Application Support/typora-user-images/image-20221019145821805.png)
+![](https://s2.loli.net/2022/10/21/UOwVYl2eSRqDcPX.png)
 
-![image-20221019150908650](/Users/kim/Library/Application Support/typora-user-images/image-20221019150908650.png)
+![](https://s2.loli.net/2022/10/21/hyEloatJQ4Sn5uO.png)
 
-![image-20221019150938610](/Users/kim/Library/Application Support/typora-user-images/image-20221019150938610.png)
+![](https://s2.loli.net/2022/10/21/mMJ8qaVuZRyEhIG.png)
 
 ## 3. 音视频标签
 
@@ -68,15 +70,15 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 <div draggable="true"></div> // div添加draggable为true才可拖动
 ```
 
-![image-20221020154321887](/Users/kim/Library/Application Support/typora-user-images/image-20221020154321887.png)
+![](https://s2.loli.net/2022/10/21/uwND1vGztZJPVgH.png)
 
 ## 8. WebWorker
 
-![image-20221020160526297](/Users/kim/Library/Application Support/typora-user-images/image-20221020160526297.png)
+![](https://s2.loli.net/2022/10/21/SIZtqa5U89FEmcH.png)
 
 ## 9. WebStorage
 
-![image-20221020163206435](/Users/kim/Library/Application Support/typora-user-images/image-20221020163206435.png)
+![](https://s2.loli.net/2022/10/21/sWjtfqz3OplG2m1.png)
 
 ## 10. WebSocket
 
