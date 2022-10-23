@@ -434,7 +434,41 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jane-panyiyun/p/13092297.html">https://www.cnblogs.com/jane-panyiyun/p/13092297.html</a></p>
+                <h1 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h1><h2 id="1-语义化标签"><a href="#1-语义化标签" class="headerlink" title="1. 语义化标签"></a>1. 语义化标签</h2><p><img src="https://s2.loli.net/2022/10/21/PsZYNSTvpmywQLi.png"></p>
+<h2 id="2-增强型表单"><a href="#2-增强型表单" class="headerlink" title="2. 增强型表单"></a>2. 增强型表单</h2><p><img src="https://s2.loli.net/2022/10/21/UOwVYl2eSRqDcPX.png"></p>
+<p><img src="https://s2.loli.net/2022/10/21/hyEloatJQ4Sn5uO.png"></p>
+<p><img src="https://s2.loli.net/2022/10/21/mMJ8qaVuZRyEhIG.png"></p>
+<h2 id="3-音视频标签"><a href="#3-音视频标签" class="headerlink" title="3. 音视频标签"></a>3. 音视频标签</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/audio">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/audio</a></p>
+<h2 id="4-Canvas绘图"><a href="#4-Canvas绘图" class="headerlink" title="4. Canvas绘图"></a>4. Canvas绘图</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API">https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API</a></p>
+<h2 id="5-SVG绘图"><a href="#5-SVG绘图" class="headerlink" title="5. SVG绘图"></a>5. SVG绘图</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Getting_Started">https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Getting_Started</a></p>
+<h2 id="6-地理定位"><a href="#6-地理定位" class="headerlink" title="6. 地理定位"></a>6. 地理定位</h2><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  enableHighAccuracy<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  timeout<span class="token punctuation">:</span> <span class="token number">5000</span><span class="token punctuation">,</span>
+  maximumAge<span class="token punctuation">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">success</span><span class="token punctuation">(</span>pos<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> crd <span class="token operator">=</span> pos<span class="token punctuation">.</span>coords<span class="token punctuation">;</span>
+
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Your current position is:'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Latitude : '</span> <span class="token operator">+</span> crd<span class="token punctuation">.</span>latitude<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Longitude: '</span> <span class="token operator">+</span> crd<span class="token punctuation">.</span>longitude<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'More or less '</span> <span class="token operator">+</span> crd<span class="token punctuation">.</span>accuracy <span class="token operator">+</span> <span class="token string">' meters.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">'ERROR('</span> <span class="token operator">+</span> err<span class="token punctuation">.</span>code <span class="token operator">+</span> <span class="token string">'): '</span> <span class="token operator">+</span> err<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+navigator<span class="token punctuation">.</span>geolocation<span class="token punctuation">.</span><span class="token function">getCurrentPosition</span><span class="token punctuation">(</span>success<span class="token punctuation">,</span> error<span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="7-拖放API"><a href="#7-拖放API" class="headerlink" title="7. 拖放API"></a>7. 拖放API</h2><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">draggable</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> // div添加draggable为true才可拖动
+</code></pre>
+<p><img src="https://s2.loli.net/2022/10/21/uwND1vGztZJPVgH.png"></p>
+<h2 id="8-WebWorker"><a href="#8-WebWorker" class="headerlink" title="8. WebWorker"></a>8. WebWorker</h2><p><img src="https://s2.loli.net/2022/10/21/SIZtqa5U89FEmcH.png"></p>
+<h2 id="9-WebStorage"><a href="#9-WebStorage" class="headerlink" title="9. WebStorage"></a>9. WebStorage</h2><p><img src="https://s2.loli.net/2022/10/21/sWjtfqz3OplG2m1.png"></p>
+<h2 id="10-WebSocket"><a href="#10-WebSocket" class="headerlink" title="10. WebSocket"></a>10. WebSocket</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket">https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket</a></p>
 
                 
             </div>

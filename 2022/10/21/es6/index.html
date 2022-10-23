@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Git日常使用笔记, 自律,激励">
-    <meta name="description" content="Git日常使用笔记">
+    <meta name="keywords" content="ES6, 自律,激励">
+    <meta name="description" content="ES6">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>Git日常使用笔记 | 自律之路</title>
+    <title>ES6 | 自律之路</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -267,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Git日常使用笔记</h1>
+                    <h1 class="description center-align post-title">ES6</h1>
                 </div>
             </div>
         </div>
@@ -388,8 +388,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
+                            <a href="/tags/ES6/">
+                                <span class="chip bg-color">ES6</span>
                             </a>
                         
                     </div>
@@ -400,8 +400,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Git/" class="post-category">
-                                Git
+                            <a href="/categories/ES6/" class="post-category">
+                                ES6
                             </a>
                         
                     </div>
@@ -413,7 +413,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-19
+                    2022-10-21
                 </div>
                 
 
@@ -434,10 +434,116 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Git日常使用笔记"><a href="#Git日常使用笔记" class="headerlink" title="Git日常使用笔记"></a>Git日常使用笔记</h1><ol>
-<li>查看当前项目的远程仓库地址 git remote -v</li>
-<li>修改当前项目的远程仓库地址 git remote set-url origin [url]</li>
+                <h1 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h1><h2 id="1-转译"><a href="#1-转译" class="headerlink" title="1. 转译"></a>1. 转译</h2><p><a target="_blank" rel="noopener" href="https://babeljs.io/">Babel</a> 是一个广泛使用的 ES6 转码器，可以将 ES6 代码转为 ES5 代码，从而在老版本的浏览器执行</p>
+<pre class=" language-shell"><code class="language-shell">npm install --save-dev @babel/core
+</code></pre>
+<ol>
+<li><p>配置文件.babelrc</p>
+<p>```shell</p>
+</li>
 </ol>
+<h1 id="最新转码规则"><a href="#最新转码规则" class="headerlink" title="最新转码规则"></a>最新转码规则</h1><p>   $ npm install –save-dev @babel/preset-env</p>
+<h1 id="react-转码规则"><a href="#react-转码规则" class="headerlink" title="react 转码规则"></a>react 转码规则</h1><p>   $ npm install –save-dev @babel/preset-react</p>
+<pre><code>
+```js
+// .babelrc
+{
+   "presets": [
+     "@babel/env",
+     "@babel/preset-react"
+   ],
+   "plugins": []
+ }
+</code></pre>
+<ol start="2">
+<li><p>命令行转译</p>
+<p>```shell<br>$ npm install –save-dev @babel/cli</p>
+</li>
+</ol>
+<h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><h1 id="转码结果输出到标准输出"><a href="#转码结果输出到标准输出" class="headerlink" title="转码结果输出到标准输出"></a>转码结果输出到标准输出</h1><p>   $ npx babel example.js</p>
+<h1 id="转码结果写入一个文件"><a href="#转码结果写入一个文件" class="headerlink" title="转码结果写入一个文件"></a>转码结果写入一个文件</h1><h1 id="–out-file-或-o-参数指定输出文件"><a href="#–out-file-或-o-参数指定输出文件" class="headerlink" title="–out-file 或 -o 参数指定输出文件"></a>–out-file 或 -o 参数指定输出文件</h1><p>   $ npx babel example.js –out-file compiled.js</p>
+<h1 id="或者"><a href="#或者" class="headerlink" title="或者"></a>或者</h1><p>   $ npx babel example.js -o compiled.js</p>
+<h1 id="整个目录转码"><a href="#整个目录转码" class="headerlink" title="整个目录转码"></a>整个目录转码</h1><h1 id="–out-dir-或-d-参数指定输出目录"><a href="#–out-dir-或-d-参数指定输出目录" class="headerlink" title="–out-dir 或 -d 参数指定输出目录"></a>–out-dir 或 -d 参数指定输出目录</h1><p>   $ npx babel src –out-dir lib</p>
+<h1 id="或者-1"><a href="#或者-1" class="headerlink" title="或者"></a>或者</h1><p>   $ npx babel src -d lib</p>
+<h1 id="s-参数生成source-map文件"><a href="#s-参数生成source-map文件" class="headerlink" title="-s 参数生成source map文件"></a>-s 参数生成source map文件</h1><p>   $ npx babel src -d lib -s</p>
+<pre><code>
+3. 直接运行es6脚本
+
+```shell
+$ npm install --save-dev @babel/node
+
+# 假设test.js文件
+# console.log((x =&gt; x * 2)())
+
+# 运行
+npx babel-node test.js
+2
+</code></pre>
+<ol start="4">
+<li><p>@babel/register模块</p>
+<p><code>@babel/register</code>模块改写<code>require</code>命令，为它加上一个钩子。此后，每当使用<code>require</code>加载<code>.js</code>、<code>.jsx</code>、<code>.es</code>和<code>.es6</code>后缀名的文件，就会先用 Babel 进行转码。</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// index.js</span>
+<span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@babel/register'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./es6.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>```shell<br>$ npm install –save-dev @babel/register</p>
+</li>
+</ol>
+<h1 id="usage"><a href="#usage" class="headerlink" title="usage"></a>usage</h1><p>   $ node index.js</p>
+<h1 id="需要注意的是，-babel-x2F-register只会对require命令加载的文件转码，而不会对当前文件转码。另外，由于它是实时转码，所以只适合在开发环境使用。"><a href="#需要注意的是，-babel-x2F-register只会对require命令加载的文件转码，而不会对当前文件转码。另外，由于它是实时转码，所以只适合在开发环境使用。" class="headerlink" title="需要注意的是，@babel/register只会对require命令加载的文件转码，而不会对当前文件转码。另外，由于它是实时转码，所以只适合在开发环境使用。"></a>需要注意的是，@babel/register只会对require命令加载的文件转码，而不会对当前文件转码。另外，由于它是实时转码，所以只适合在开发环境使用。</h1><pre><code>
+5. polyfill
+
+Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 API，比如`Iterator`、`Generator`、`Set`、`Map`、`Proxy`、`Reflect`、`Symbol`、`Promise`等全局对象，以及一些定义在全局对象上的方法（比如`Object.assign`）都不会转码。
+
+举例来说，ES6 在`Array`对象上新增了`Array.from`方法。Babel 就不会转码这个方法。如果想让这个方法运行，可以使用`core-js`和`regenerator-runtime`(后者提供generator函数的转码)，为当前环境提供一个垫片。
+
+```shell
+$ npm install --save-dev core-js regenerator-runtime
+</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">'core-js'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'regenerator-runtime/runtime'</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 或者</span>
+<span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'core-js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'regenerator-runtime/runtime'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<ol start="6">
+<li><p>浏览器环境</p>
+<p>Babel 也可以用于浏览器环境，使用<a target="_blank" rel="noopener" href="https://babeljs.io/docs/en/next/babel-standalone.html">@babel/standalone</a>模块提供的浏览器版本，将其插入网页。</p>
+</li>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"https://unpkg.com/@babel/standalone/babel.min.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/babel"</span><span class="token operator">></span>
+<span class="token comment" spellcheck="true">// Your ES6 code</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<p>注意，网页实时将 ES6 代码转为 ES5，对性能会有影响。生产环境需要加载已经转码完成的脚本。</p>
+<p>Babel 提供一个<a target="_blank" rel="noopener" href="https://babeljs.io/repl/">REPL 在线编译器</a>，可以在线将 ES6 代码转为 ES5 代码。转换后的代码，可以直接作为 ES5 代码插入网页运行。</p>
+<h2 id="2-let和const"><a href="#2-let和const" class="headerlink" title="2. let和const"></a>2. let和const</h2><h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><ul>
+<li><p>声明的变量仅在let命令所在的代码块内有效</p>
+</li>
+<li><p>不存在变量提升</p>
+</li>
+<li><p>暂时性死区</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> tmp <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES6 明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  tmp <span class="token operator">=</span> <span class="token string">'abc'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ReferenceError</span>
+  <span class="token keyword">let</span> tmp<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// let 绑定在if里面的块级作用域，那么在声明前使用就会报错</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>缺点：</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">typeof</span> x<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ReferenceError   typeof不再是一个百分百安全的操作</span>
+<span class="token keyword">let</span> x<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// compare</span>
+<span class="token keyword">typeof</span> y <span class="token comment" spellcheck="true">// undefined,但不会报错</span>
+</code></pre>
+</li>
+<li><p>不允许重复声明</p>
+</li>
+</ul>
+<h3 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h3><p><a target="_blank" rel="noopener" href="https://wangdoc.com/es6/let.html#%E6%9A%82%E6%97%B6%E6%80%A7%E6%AD%BB%E5%8C%BA">https://wangdoc.com/es6/let.html#%E6%9A%82%E6%97%B6%E6%80%A7%E6%AD%BB%E5%8C%BA</a></p>
 
                 
             </div>
@@ -464,7 +570,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/07/19/git-ri-chang-shi-yong-bi-ji/">http://example.com/2022/07/19/git-ri-chang-shi-yong-bi-ji/</a>
+                    <a href="http://example.com/2022/10/21/es6/">http://example.com/2022/10/21/es6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -502,8 +608,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
+                                <a href="/tags/ES6/">
+                                    <span class="chip bg-color">ES6</span>
                                 </a>
                             
                         </div>
@@ -681,31 +787,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/07/19/css3/">
+                <a href="/2022/10/23/vue/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="CSS3">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Vue">
                         
-                        <span class="card-title">CSS3</span>
+                        <span class="card-title">Vue</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            CSS3
+                            Vue
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-23
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CSS3/" class="post-category">
-                                    CSS3
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
                                 </a>
                             
                             
@@ -715,8 +821,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CSS3/">
-                        <span class="chip bg-color">CSS3</span>
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
                     </a>
                     
                 </div>
@@ -730,31 +836,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/07/19/html5/">
+                <a href="/2022/07/21/suan-fa-tu-jie-chapter7/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="HTML5">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="算法图解-chapter7">
                         
-                        <span class="card-title">HTML5</span>
+                        <span class="card-title">算法图解-chapter7</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            HTML5
+                            算法图解-chapter7
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-21
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/H5/" class="post-category">
-                                    H5
+                            <a href="/categories/%E7%AE%97%E6%B3%95%E5%9B%BE%E8%A7%A3/" class="post-category">
+                                    算法图解
                                 </a>
                             
                             
@@ -764,8 +870,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/H5/">
-                        <span class="chip bg-color">H5</span>
+                    <a href="/tags/%E7%AE%97%E6%B3%95%E5%9B%BE%E8%A7%A3/">
+                        <span class="chip bg-color">算法图解</span>
                     </a>
                     
                 </div>
