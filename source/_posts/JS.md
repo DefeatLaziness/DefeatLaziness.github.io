@@ -18,8 +18,6 @@ categories: [JS]
 
 ### 		变量
 
-#### 			var
-
 ```js
 // 1. var存在变量提升
 
@@ -91,4 +89,107 @@ otherObject[Symbol.isConcatSpreadable] = true;
 console.log(initial.concat(otherObject)); // ['foo']
 ```
 
-page 75
+```js
+// yield
+
+function* test(x) {
+  var y = 2 * (yield (x + 1))
+  var z = yield (y + 3)
+	return (x + y + z)
+}
+
+var a = test(5)
+a.next() // {value: 6, done: false}
+a.next() // {value: NaN, done: false}
+a.next() // {value: NaN, done: true}
+
+var b = test(5)
+b.next() // {value: 6, done: false}
+// 注意next()内的传参 = 上一次yield expression的值
+b.next(12) // {value: 8, done: false}
+// y = 2 * 12
+b.next(13) // {value: 42, done: true}
+// z = 13
+```
+
+### 操作符
+
+```js
+// ++ / -- 
+// 前： 代表先执行运算再赋值
+// 后： 代表先赋值再运算
+
+// example
+let num = 3
+let num1 = num-- + 1 
+console.log(num1) // 4
+
+let num2 = 3
+let num3 = --num2 + 1
+console.log(num3) // 3
+```
+
+```js
+// 计算二进制的负值
+// example
+
+// 十进制18的二进制表示方法
+// 0000 0000 0000 0000 0000 0000 0001 0010
+
+// 反转（计算补数）
+// 1111 1111 1111 1111 1111 1111 1110 1101
+
+//给补数加1（下面的就是-18的二进制表示方法）
+// 1111 1111 1111 1111 1111 1111 1110 1110
+
+// 无符号整数比有符号整数的范围更大，因为第32位被用来表示数值了
+```
+
+```js
+// Math.pow()对应的操作符为 **(指数操作符)
+
+// Math.pow(3, 2) == 3 ** 2
+
+// 指数赋值操作符 **=
+let a = 3
+a **= 2
+console.log(a) // 9
+```
+
+```js
+// 关系操作符	< > <= >=
+
+// 注意：两个类型为String的比较时，不会转换为Number再比较，而是依次比较每一位的unicode编码大小
+console.log("23" < "3") // true
+console.log("23" < 3) // false
+
+// 注意：NaN与任何值比较都返回false
+console.log(NaN < 3) // false
+console.log(NaN >= 3) // false
+```
+
+## 3. 变量、作用域与内存
+
+### 3.1 原始值与引用值
+
+简单数据类型（String、Number、Boolean、Undefined、Null、Symbol）是按值传递；
+
+复杂数据类型（Object）是按引用传递；
+
+函数的参数是按值传递的。
+
+### 3.2 垃圾回收
+
+1：标记清理
+
+垃圾回收程序运行的时候，会标记内存中存储的所有变量（记住，标记方法有很多种）。然后，它会将所有在上下文中的变量，以及被在上下文中的变量引用的变量的标记去掉。在此之后再被加上标记的变量就是待删除的了，原因是任何在上下文中的变量都访问不到它们了。随后垃圾回收程序做一次内存清理，销毁带标记的所有值并收回它们的内存。
+
+2: 引用计数
+
+对每个值都记录它被引用的次数。声明变量并给它赋一个引用值时，这个值的引用数为 1。如果同一个值又被赋给另一个变量，那么引用数加 1。类似地，如果保存对该值引用的变量被其他值给覆盖了，那么引用数减 1。当一个值的引用数为 0 时，就说明没办法再访问到这个值了，因此可以安全地收回其内存了。垃圾回收程序下次运行的时候就会释放引用数为 0 的值的内存。
+
+缺点：循环引用；	解决办法：改用标记清理
+
+![image-20221026181255471.png](https://s2.loli.net/2022/10/26/GP3lcAO79Qzapju.png)
+
+99
