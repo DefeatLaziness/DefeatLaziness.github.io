@@ -192,4 +192,44 @@ console.log(NaN >= 3) // false
 
 ![image-20221026181255471.png](https://s2.loli.net/2022/10/26/GP3lcAO79Qzapju.png)
 
-99
+## 4.基本引用类型
+
+### 4.1 Date
+
+```js
+// Date类型的valueof()方法不返回字符串，返回的是被重写后的时期的毫秒数。
+// 因此操作符可以直接使用Date类型的值来比较日期先后
+
+let date1 = new Date(2019, 0, 1) // 2019年1月1日
+let date2 = new Date(2019, 1, 1) // 2019年2月1日
+
+console.log(date1 < date2) // true
+console.log(date1 > date2) // false
+
+
+// Date类型的getTimezoneOffset()可返回以分钟计的UTC与本地时区的偏移量
+
+let now = new Date()
+console.log(now.getTimezoneOffset()) // -480 代表比UTC时间快480分钟
+```
+
+### 4.2 原始值包装类型Boolean
+
+```js
+// 所有对象在布尔表达式中在会转为true
+let falseObj = new Boolean(false)
+let result = falseObj && true
+console.log(result) // true
+```
+
+### 4.3 原始值包装类型的String
+
+let stringValue = 'hello world'
+
+|             |                          参数为正数                          |                          参数为负数                          |
+| :---------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+|   slice()   | （startIndex, endIndex）<br />stringValue.slice(3, 7) → 'lo w' |       正常行为<br />stringValue.slice(3, -4) → ‘lo w'        |
+|  substr()   | （startIndex, 返回的字符串长度）<br />stringValue.substr(3, 7) → 'lo worl' | 参数1（字符串长度+该值），参数2（转为0）<br />stringValue.substr(3， -4) → ‘empty string’ |
+| substring() | （startIndex, endIndex）<br />stringValue.slice(3, 7) → 'lo w' |       都转为0<br />stringValue.substr(3， -4) → ‘hel’        |
+
+159
