@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Vue, 自律,激励">
-    <meta name="description" content="Vue">
+    <meta name="keywords" content="Node.js, 自律,激励">
+    <meta name="description" content="Node">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>Vue | 自律之路</title>
+    <title>Node.js | 自律之路</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -267,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Vue</h1>
+                    <h1 class="description center-align post-title">Node.js</h1>
                 </div>
             </div>
         </div>
@@ -388,8 +388,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Vue/">
-                                <span class="chip bg-color">Vue</span>
+                            <a href="/tags/Node/">
+                                <span class="chip bg-color">Node</span>
                             </a>
                         
                     </div>
@@ -400,8 +400,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Vue/" class="post-category">
-                                Vue
+                            <a href="/categories/Node/" class="post-category">
+                                Node
                             </a>
                         
                     </div>
@@ -413,7 +413,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-23
+                    2022-11-01
                 </div>
                 
 
@@ -434,7 +434,80 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1><h2 id="1-基本原理"><a href="#1-基本原理" class="headerlink" title="1.基本原理"></a>1.基本原理</h2><p>在初始化实例中，会有一个initData()方法被调，它遍历data中的每个属性，vue2使用Object.defineProperty转为getter和setter（vue3使用proxy），而后创建watcher对象，目的是记录使用到同一个属性的不同watcher， 为data中的每个属性定义一个响应式的getter和setter，在响应式的getter中，会创建一个叫dep的依赖对象，记录每个使用到属性的watcher；而当setter被调用时，会由dep通知相应的watcher执行更新函数更新视图。</p>
+                <h1 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h1><h2 id="1-用途"><a href="#1-用途" class="headerlink" title="1. 用途"></a>1. 用途</h2><ol>
+<li>基于Express框架，快速构建Web应用；</li>
+<li>基于Electron框架，构建跨平台的桌面应用；</li>
+<li>基于restify框架，快速构建API接口项目。</li>
+</ol>
+<h2 id="2-fs文件系统模块"><a href="#2-fs文件系统模块" class="headerlink" title="2. fs文件系统模块"></a>2. fs文件系统模块</h2><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// fs.readFile(path[, options], callback)</span>
+<span class="token comment" spellcheck="true">// callback: (err, data) => {}</span>
+<span class="token comment" spellcheck="true">// 读取成功: err为null, data为数据对象</span>
+<span class="token comment" spellcheck="true">// 读取失败: err为错误对象, data为undefined</span>
+fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'./1.txt'</span><span class="token punctuation">,</span> <span class="token string">'utf8'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'----------------'</span><span class="token punctuation">)</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// fs.writeFile(file, data[, options], callback)</span>
+<span class="token comment" spellcheck="true">// callback: (err) => {}</span>
+<span class="token comment" spellcheck="true">// 读取成功: err为null</span>
+<span class="token comment" spellcheck="true">// 读取失败: err为错误对象</span>
+fs<span class="token punctuation">.</span><span class="token function">writeFile</span><span class="token punctuation">(</span><span class="token string">'./2.txt'</span><span class="token punctuation">,</span> <span class="token string">'Hello, jim'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 注意：</span>
+<span class="token comment" spellcheck="true">// 1.此方法只能用来创建文件，不能用来创建路径</span>
+<span class="token comment" spellcheck="true">// 2.重复调用此方法写入同一个文件，新写入的内容会覆盖旧的内容</span>
+</code></pre>
+<h2 id="3-path-路径模块"><a href="#3-path-路径模块" class="headerlink" title="3. path 路径模块"></a>3. path 路径模块</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// path.join()</span>
+<span class="token keyword">const</span> pathStr <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'/a'</span><span class="token punctuation">,</span> <span class="token string">'/b/c'</span><span class="token punctuation">,</span> <span class="token string">'../'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>pathStr<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// \a\b\d</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./1.txt'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// C:\Users\kim\Desktop\test\1.txt</span>
+
+<span class="token comment" spellcheck="true">// path.basename()</span>
+<span class="token keyword">const</span> fPath <span class="token operator">=</span> <span class="token string">'/a/b/c/index.html'</span>
+
+<span class="token keyword">const</span> fileFullName <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>fPath<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fileFullName<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// index.html</span>
+
+<span class="token keyword">const</span> fileName <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>fPath<span class="token punctuation">,</span> <span class="token string">'.html'</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fileName<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// index</span>
+
+<span class="token comment" spellcheck="true">// path.extname()</span>
+<span class="token keyword">const</span> extName <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">extname</span><span class="token punctuation">(</span>fPath<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>extName<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// .html</span>
+</code></pre>
+<h2 id="4-http-模块"><a href="#4-http-模块" class="headerlink" title="4. http 模块"></a>4. http 模块</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+server<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'request'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// req.url 是请求地址, req.method 是请求方法</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> url<span class="token punctuation">,</span> method <span class="token punctuation">}</span> <span class="token operator">=</span> req
+  <span class="token keyword">let</span> content <span class="token operator">=</span> <span class="token string">'&lt;h1>404 Not Found&lt;/h1>'</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>url <span class="token operator">===</span> <span class="token string">'/'</span> <span class="token operator">||</span> url <span class="token operator">===</span> <span class="token string">'/index'</span><span class="token punctuation">)</span> content <span class="token operator">=</span> <span class="token string">'&lt;h1>首页&lt;/h1>'</span>
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>url <span class="token operator">===</span> <span class="token string">'/about'</span><span class="token punctuation">)</span> content <span class="token operator">=</span> <span class="token string">'&lt;h1>关于&lt;/h1>'</span>
+  
+  <span class="token comment" spellcheck="true">// 为了防止中文显示乱码的问题，需要设置响应头 Content-Type 的值为 text/html; charset=utf-8</span>
+  res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span> <span class="token string">'text/html; charset=utf-8'</span><span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">// res.end(content) 向客户端响应内容并结束请求</span>
+  res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">80</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'server is running.'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
 
                 
             </div>
@@ -461,7 +534,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/10/23/vue/">http://example.com/2022/10/23/vue/</a>
+                    <a href="http://example.com/2022/11/01/nodejs/">http://example.com/2022/11/01/nodejs/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -499,8 +572,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Vue/">
-                                    <span class="chip bg-color">Vue</span>
+                                <a href="/tags/Node/">
+                                    <span class="chip bg-color">Node</span>
                                 </a>
                             
                         </div>
@@ -674,9 +747,60 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/11/01/nodejs/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Node.js">
+                        
+                        <span class="card-title">Node.js</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Node
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Node/" class="post-category">
+                                    Node
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Node/">
+                        <span class="chip bg-color">Node</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2022/10/25/js/">
                     <div class="card-image">
@@ -694,9 +818,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -714,55 +838,6 @@
                     
                     <a href="/tags/JS/">
                         <span class="chip bg-color">JS</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/10/21/es6/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="ES6">
-                        
-                        <span class="card-title">ES6</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            ES6
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-21
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/ES6/" class="post-category">
-                                    ES6
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/ES6/">
-                        <span class="chip bg-color">ES6</span>
                     </a>
                     
                 </div>
