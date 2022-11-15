@@ -302,3 +302,278 @@ res.setHeader('Access-Control-Allow-Methods', 'PUT, DELETE')
 传统型数据库（关系型数据库、SQL数据库）：MySQL、Oracle、SQL Server
 
 新型数据库（非关系型数据库、NoSQL数据库）：Mongodb
+
+### 2. SQL语句
+
+```sql
+-- 关键字对大小写不敏感
+
+-- 查
+-- SELECT 列名称 FROM 表名称
+-- 其中 * 代表所有列
+
+-- 增
+-- insert into table_name(column1, column2...) values (value1, value2...)
+
+-- 改
+-- update table_name set colName = newVal where colName = val
+
+-- 删
+-- delete from table_name where colName = val
+
+-- e.g.
+-- select * from my_db_01.users
+-- select username, password from my_db_01.users
+-- insert into my_db_01.users (usernameusers, password) values ('tony stark', '098123')
+-- update my_db_01.users set password = '888888' where id = 4
+-- update my_db_01.users set password = 'admin123', status = 1 where id = 2
+-- delete from my_db_01.users where id = 4
+```
+
+### 3. 在项目中使用mysql
+
+1. 安装操作MySQL数据库的第三方模块(mysql)
+
+   ```shell
+   npm i mysql
+   ```
+
+   
+
+2. 通过mysql模块连接到MySQL数据库
+
+3. 通过mysql模块执行SQL语句
+
+```js
+const mysql = require('mysql')
+
+const db = mysql.createPool({
+  host: '127.0.0.1',
+  user: 'root',
+  password: 'admin123',
+  database: 'my_db_01',
+})
+
+// 插入数据
+const user = { username: 'Spider-Ma', password: 'pcc321' }
+// ? 代表占位符
+const sqlStrForInsert = 'insert into users (username, password) values (?, ?)'
+db.query(sqlStrForInsert, [user.username, user.password], (err, result) => {
+  if (err) return console.log(err.message)
+  if (result.affectedRows === 1) console.log('插入数据成功')
+})
+
+// 插入数据便捷写法
+const user = { username: 'Spider', password: 'pcc321' }
+// ? 代表占位符
+const sqlStrForInsert = 'insert into users set ?'
+db.query(sqlStrForInsert, user, (err, result) => {
+  if (err) return console.log(err.message)
+  if (result.affectedRows === 1) console.log('插入数据成功')
+})
+
+// 删除数据便捷写法
+// ? 代表占位符
+const sqlStrForDelete = 'delete from users where id=?'
+db.query(sqlStrForDelete, 5, (err, result) => {
+  if (err) return console.log(err.message)
+  if (result.affectedRows === 1) console.log('删除数据成功')
+})
+
+// 更新数据便捷写法
+const user = { id: 5, username: 'aba', password: '000' }
+// ? 代表占位符
+const sqlStrForUpdate = 'update users set ? where id=?'
+db.query(sqlStrForUpdate, [user, user.id], (err, result) => {
+  if (err) return console.log(err.message)
+  if (result.affectedRows === 1) console.log('更新数据成功')
+})
+
+// 标记删除
+// 使用delete语句会真正地把数据从数据库中删除，为了保险起见，将用户状态禁用了则代表删除了
+const sqlStrForMarkDel = 'update users set status = 1 where id=?'
+db.query(sqlStrForMarkDel, 8, (err, result) => {
+  if (err) return console.log(err.message)
+  if (result.affectedRows === 1) console.log('标记删除成功！')
+})
+
+// 查询数据
+db.query('select * from users', (err, result) => {
+  if (err) return console.log(err.message)
+
+  console.log(result)
+})
+
+```
+
+## 10. Web开发模式
+
+- 服务端渲染
+
+  优点：前端耗时少、有利于SEO
+
+  缺点：占用服务器资源、不利于前后端分离而导致开发效率低
+
+  身份认证：推荐使用Session认证机制
+
+- 前后端分离
+
+  优点：开发体验好、用户体验好、减轻了服务端的渲染压力
+
+  缺点：不利于SEO（可以通过SSR技术解决）
+
+  身份认证：推荐使用JWT认证机制
+
+## 11. Express中使用Session认证
+
+1. 安装express-session中间件
+
+   ```shell
+   npm i express-session
+   ```
+
+2. 配置express-session中间件
+
+   ```js
+   const session = require('express-session')
+   app.use(
+     session({
+       secret: 'kim',
+       resave: false,
+       saveUninitialized: true,
+     })
+   )
+   ```
+
+3. 将数据存储到session中
+
+   ```js
+   // 登录的 API 接口
+   app.post('/api/login', (req, res) => {
+     // 判断用户提交的登录信息是否正确
+     if (req.body.username !== 'admin' || req.body.password !== '000000') {
+       return res.send({ status: 1, msg: '登录失败' })
+     }
+   
+     console.log(req.session)
+     // TODO_02：请将登录成功后的用户信息，保存到 Session 中
+     req.session.user = req.body
+     req.session.isLogin = true
+     console.log(req.session)
+   
+     res.send({ status: 0, msg: '登录成功' })
+   })
+   ```
+
+4. 将数据从session中取出
+
+   ```js
+   // 获取用户姓名的接口
+   app.get('/api/username', (req, res) => {
+     // TODO_03：请从 Session 中获取用户的名称，响应给客户端
+     if (!req.session.isLogin) return res.send({ status: 1, msg: 'fail' })
+   
+     res.send({
+       status: 0,
+       msg: 'success',
+       username: req.session.user.username,
+     })
+   })
+   ```
+
+5. 清空session中的数据
+
+   ```js
+   // 退出登录的接口
+   app.post('/api/logout', (req, res) => {
+     // TODO_04：清空 Session 信息
+     req.session.destroy()
+     res.send({
+       status: 0,
+       msg: '退出登录成功！',
+     })
+   })
+   ```
+
+   ## 12. JWT认证机制
+
+   由三部分组成：Header(头部).Payload(有效载荷).Signature(签名)
+
+   - 其中Payload部分才是真正的用户信息，它是用户信息经过加密之后生成的字符串。
+   - Header 和 Signature 是安全性相关的部分，只是为了保证token的安全性。
+   
+   在Express中使用JWT
+   
+   1. 安装JWT相关包
+   
+      ```shell
+      npm i jsonwebtoken express-jwt
+      // jsonwebtoken 生成JWT字符串
+      // express-jwt 将JWT字符串还原成json对象
+      ```
+   
+   2. 导入JWT相关包
+   
+      ```js
+      const jwt = require('jsonwebtoken')
+      const expressJWT = require('express-jwt')
+      ```
+   
+   3. 定义secret密钥&生成token
+   
+      ```js
+      const secretKey = 'DefeatLaziness~~'
+      // 登录接口
+      app.post('/api/login', function (req, res) {
+        // 将 req.body 请求体中的数据，转存为 userinfo 常量
+        const userinfo = req.body
+        // 登录失败
+        if (userinfo.username !== 'admin' || userinfo.password !== '000000') {
+          return res.send({
+            status: 400,
+            message: '登录失败！',
+          })
+        }
+        // 登录成功
+        // TODO_03：在登录成功之后，调用 jwt.sign() 方法生成 JWT 字符串。并通过 token 属性发送给客户端
+        // 参数1: 用户的信息对象
+        // 参数2：加密的密钥
+        // 参数3：配置对象
+        const tokenStr = jwt.sign({ username: userinfo.username }, secretKey, {
+          expiresIn: '30s',
+        })
+        res.send({
+          status: 200,
+          message: '登录成功！',
+          token: tokenStr, // 要发送给客户端的 token 字符串
+        })
+      })
+      ```
+   
+   4. 将JWT字符串还原为JSON对象
+   
+      ```js
+      app.use(expressJWT({ secret: secretKey }).unless({ path: [/^\/api\//] }))
+      // 只要配置成功express-jwt中间件，就会把解析出来的用户信息挂载到req.user中
+      // 这是一个有权限的 API 接口
+      app.get('/admin/getinfo', function (req, res) {
+        // TODO_05：使用 req.user 获取用户信息，并使用 data 属性将用户信息发送给客户端
+        res.send({
+          status: 200,
+          message: '获取用户信息成功！',
+          data: req.auth, // 要发送给客户端的用户信息
+        })
+      })
+      ```
+   
+   5. 捕获JWT解析失败
+   
+      ```js
+      app.use((err, req, res, next) => {
+        if (err.name === 'UnauthorizedError')
+          return res.send({ status: 401, message: '无效的token' })
+        res.send({ status: 500, message: '未知错误' })
+      })
+      ```
+   
+      
