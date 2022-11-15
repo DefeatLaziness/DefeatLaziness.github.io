@@ -434,7 +434,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1><h2 id="1-基本原理"><a href="#1-基本原理" class="headerlink" title="1.基本原理"></a>1.基本原理</h2><p>在初始化实例中，会有一个initData()方法被调，它遍历data中的每个属性，vue2使用Object.defineProperty转为getter和setter（vue3使用proxy），而后创建watcher对象，目的是记录使用到同一个属性的不同watcher， 为data中的每个属性定义一个响应式的getter和setter，在响应式的getter中，会创建一个叫dep的依赖对象，记录每个使用到属性的watcher；而当setter被调用时，会由dep通知相应的watcher执行更新函数更新视图。</p>
+                <h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1><h2 id="1-基本原理"><a href="#1-基本原理" class="headerlink" title="1.基本原理"></a>1.基本原理</h2><p>在初始化实例中，会创建一个Observe对象，在这个对象中会通过Object.defineProperty（vue3 使用的是 proxy）来监视和劫持data中所有层级的属性，它还会为每个属性定义一个响应式的getter和setter，在响应式getter中会创建一个dep对象和watcher对象，dep对象则是收集使用到该属性的所有watcher，而watcher对象相当于对该属性进行订阅。那么在初始化模板编译的时候，响应式的getter会被调用，dep对象收集到相关依赖；之后在属性更新时，响应式的setter会通过dep对象向每个watcher通知，watcher就会执行更新函数进行更新视图。</p>
 
                 
             </div>
