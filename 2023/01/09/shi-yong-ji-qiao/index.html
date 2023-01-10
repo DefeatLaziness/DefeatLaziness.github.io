@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="算法图解-chapter2, 自律,激励">
-    <meta name="description" content="算法图解-chapter2">
+    <meta name="keywords" content="使用技巧, 自律,激励">
+    <meta name="description" content="skill">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>算法图解-chapter2 | 自律之路</title>
+    <title>使用技巧 | 自律之路</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -267,12 +267,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">算法图解-chapter2</h1>
+                    <h1 class="description center-align post-title">使用技巧</h1>
                 </div>
             </div>
         </div>
@@ -388,23 +388,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95%E5%9B%BE%E8%A7%A3/">
-                                <span class="chip bg-color">算法图解</span>
+                            <a href="/tags/skill/">
+                                <span class="chip bg-color">skill</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E7%AE%97%E6%B3%95%E5%9B%BE%E8%A7%A3/" class="post-category">
-                                算法图解
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -413,7 +404,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-20
+                    2023-01-09
                 </div>
                 
 
@@ -434,70 +425,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h6 id="排序是相连的"><a href="#排序是相连的" class="headerlink" title="排序是相连的"></a>排序是相连的</h6><ol>
-<li>数组不定长的缺点：在新增元素时，需重新寻找空间</li>
-<li>数组定长的缺点：额外多余的位置可能用不上，浪费内存</li>
-</ol>
-<h6 id="查找元素："><a href="#查找元素：" class="headerlink" title="查找元素："></a>查找元素：</h6><table>
-<thead>
-<tr>
-<th align="center">读取</th>
-<th align="center">插入</th>
-<th align="center">删除</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">O(1)</td>
-<td align="center">O(n)</td>
-<td align="center">O(n)</td>
-</tr>
-</tbody></table>
-<p>比链表效率高</p>
-<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h6 id="元素可存储在内存的任何地方，通过指向来连接所有元素"><a href="#元素可存储在内存的任何地方，通过指向来连接所有元素" class="headerlink" title="元素可存储在内存的任何地方，通过指向来连接所有元素"></a>元素可存储在内存的任何地方，通过指向来连接所有元素</h6><h6 id="查找元素：-1"><a href="#查找元素：-1" class="headerlink" title="查找元素："></a>查找元素：</h6><table>
-<thead>
-<tr>
-<th align="center">读取</th>
-<th align="center">插入</th>
-<th align="center">删除</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">O(n)</td>
-<td align="center">O(1)</td>
-<td align="center">O(1)</td>
-</tr>
-</tbody></table>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-tsx"><code class="language-tsx">// 数组的选择排序
-
-let arr = [5, 3, 6, 2, 10]
-let arr1 = [5, 3, 6, 2, 10]
-
-function findIndex<T>(arr: T[], toLarge: boolean): number {
-  let target = arr[0]
-  let target_index = 0
-  for (let index = 0; index < arr.length; index++) {
-    if ((toLarge && arr[index] < target) || (!toLarge && arr[index] > target)) {
-      target = arr[index]
-      target_index = index
-    }
-  }
-  return target_index
-}
-
-function selectionSort(arr: number[], toLarge = true): number[] {
-  let newArr: number[] = []
-  let length = arr.length
-  while (length != 0) {
-    let target_index = findIndex(arr, toLarge)
-    newArr.push(arr.splice(target_index, 1)[0])
-    length = arr.length
-  }
-  return newArr
-}
-
-console.log(selectionSort(arr)) //  [ 2, 3, 5, 6, 10 ]
-console.log(selectionSort(arr1, false)) //  [ 10, 6, 5, 3, 2 ]
+                <h1 id="开发技巧"><a href="#开发技巧" class="headerlink" title="开发技巧"></a>开发技巧</h1><h2 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h2><ol>
+<li><p>vscode中可使用注释块来折叠代码</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// #region</span>
+<span class="token comment" spellcheck="true">// #endregion</span>
 </code></pre>
+</li>
+</ol>
 
                 
             </div>
@@ -524,7 +458,7 @@ console.log(selectionSort(arr1, false)) //  [ 10, 6, 5, 3, 2 ]
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/07/20/suan-fa-tu-jie-chapter2/">http://example.com/2022/07/20/suan-fa-tu-jie-chapter2/</a>
+                    <a href="http://example.com/2023/01/09/shi-yong-ji-qiao/">http://example.com/2023/01/09/shi-yong-ji-qiao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -562,8 +496,8 @@ console.log(selectionSort(arr1, false)) //  [ 10, 6, 5, 3, 2 ]
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95%E5%9B%BE%E8%A7%A3/">
-                                    <span class="chip bg-color">算法图解</span>
+                                <a href="/tags/skill/">
+                                    <span class="chip bg-color">skill</span>
                                 </a>
                             
                         </div>
@@ -737,46 +671,44 @@ console.log(selectionSort(arr1, false)) //  [ 10, 6, 5, 3, 2 ]
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/07/21/suan-fa-tu-jie-chapter4/">
+                <a href="/2023/01/09/shi-yong-ji-qiao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="算法图解-chapter4">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="使用技巧">
                         
-                        <span class="card-title">算法图解-chapter4</span>
+                        <span class="card-title">使用技巧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            算法图解-chapter4
+                            skill
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-09
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95%E5%9B%BE%E8%A7%A3/" class="post-category">
-                                    算法图解
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            小金
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95%E5%9B%BE%E8%A7%A3/">
-                        <span class="chip bg-color">算法图解</span>
+                    <a href="/tags/skill/">
+                        <span class="chip bg-color">skill</span>
                     </a>
                     
                 </div>
@@ -790,31 +722,31 @@ console.log(selectionSort(arr1, false)) //  [ 10, 6, 5, 3, 2 ]
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/07/20/suan-fa-tu-jie-chapter1/">
+                <a href="/2022/11/01/nodejs/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="算法图解-chapter1">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Node.js">
                         
-                        <span class="card-title">算法图解-chapter1</span>
+                        <span class="card-title">Node.js</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            算法图解-chapter1
+                            Node
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95%E5%9B%BE%E8%A7%A3/" class="post-category">
-                                    算法图解
+                            <a href="/categories/Node/" class="post-category">
+                                    Node
                                 </a>
                             
                             
@@ -824,8 +756,8 @@ console.log(selectionSort(arr1, false)) //  [ 10, 6, 5, 3, 2 ]
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95%E5%9B%BE%E8%A7%A3/">
-                        <span class="chip bg-color">算法图解</span>
+                    <a href="/tags/Node/">
+                        <span class="chip bg-color">Node</span>
                     </a>
                     
                 </div>
