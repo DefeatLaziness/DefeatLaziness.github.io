@@ -348,31 +348,6 @@
     
     
     <entry>
-      <title>Git日常使用笔记</title>
-      <link href="/2022/07/19/git-ri-chang-shi-yong-bi-ji/"/>
-      <url>/2022/07/19/git-ri-chang-shi-yong-bi-ji/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Git日常使用笔记"><a href="#Git日常使用笔记" class="headerlink" title="Git日常使用笔记"></a>Git日常使用笔记</h1><ol><li>查看当前项目的远程仓库地址 git remote -v</li><li>修改当前项目的远程仓库地址 git remote set-url origin [url]</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> Git </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Git </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>CSS3</title>
       <link href="/2022/07/19/css3/"/>
       <url>/2022/07/19/css3/</url>
@@ -390,6 +365,31 @@
         <tags>
             
             <tag> CSS3 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git日常使用笔记</title>
+      <link href="/2022/07/19/git-ri-chang-shi-yong-bi-ji/"/>
+      <url>/2022/07/19/git-ri-chang-shi-yong-bi-ji/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Git日常使用笔记"><a href="#Git日常使用笔记" class="headerlink" title="Git日常使用笔记"></a>Git日常使用笔记</h1><ol><li>查看当前项目的远程仓库地址 git remote -v</li><li>修改当前项目的远程仓库地址 git remote set-url origin [url]</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
             
         </tags>
       
