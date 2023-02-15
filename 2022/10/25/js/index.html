@@ -726,7 +726,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>instance<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// "Nicholas"; </span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>instance<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 29</span>
 
-<span class="token comment" spellcheck="true">// 缺点：盗用构造函数的主要缺点，也是使用构造函数模式自定义类型的问题：必须在构造函数中定义方法，因此函数不能重用。此外，子类也不能访问父类原型上定义的方法，因此所有类型只能使用构造函数模式。由于存在这些问题，盗用构造函数基本上也不能单独使用。</span>
+<span class="token comment" spellcheck="true">// 缺点：</span>
+<span class="token comment" spellcheck="true">// 1.只能继承父类构造函数的属性，不能继承方法</span>
+<span class="token comment" spellcheck="true">// 2.无法实现构造函数的复用（每次用每次都要重新调用）</span>
 </code></pre>
 </li>
 <li><p>组合继承（也叫伪经典继承）</p>
@@ -871,6 +873,13 @@ SubType<span class="token punctuation">.</span>prototype<span class="token punct
 <span class="token comment" spellcheck="true">// 这里只调用了一次 SuperType 构造函数，避免了 SubType.prototype 上不必要也用不到的属性，因此可以说这个例子的效率更高。而且，原型链仍然保持不变，因此 instanceof 操作符和isPrototypeOf()方法正常有效。寄生式组合继承可以算是引用类型继承的最佳模式。</span>
 </code></pre>
 </li>
+</ol>
+<h2 id="6-Class"><a href="#6-Class" class="headerlink" title="6. Class"></a>6. Class</h2><h3 id="6-1-new实例化"><a href="#6-1-new实例化" class="headerlink" title="6.1 new实例化"></a>6.1 new实例化</h3><ol>
+<li>在内存中创建一个新对象</li>
+<li>这个新对象的[ [ Prototype ] ]指针被赋值为构造函数的prototype属性</li>
+<li>构造函数内部的this被赋值为这个新对象（即this指向新对象）</li>
+<li>执行构造函数内部的代码（给新对象添加属性）</li>
+<li>如果构造函数返回非空对象，则返回该对象；否则返回刚创建的新对象</li>
 </ol>
 
                 
